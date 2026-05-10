@@ -15,23 +15,23 @@ export const heroContent = {
 
 export const signaturePackages = [
   {
-    title: "ECM 두피·피부 재생",
+    title: "ECM\n두피·피부 재생",
     body: "두피부터 피부까지 세포 외 기질(ECM) 케어를 바탕으로 건강한 재생 환경을 설계합니다.",
-    image: "/images/regain/signature-model-1.jpeg",
+    image: "/images/regain/signature-model-1.jpg",
     alt: "피부 재생 시그니처 프로그램 모델 이미지",
     href: "/signature",
   },
   {
-    title: "관절 컨디션 관리",
+    title: "관절\n컨디션 관리",
     body: "관절과 움직임의 컨디션을 고려한 정밀 관리 프로그램으로 일상 활동의 편안함을 돕습니다.",
-    image: "/images/regain/signature-model-2.png",
+    image: "/images/regain/signature-model-2.jpg",
     alt: "정밀 컨디션 관리 프로그램 모델 이미지",
     href: "/signature#stemcell-care",
   },
   {
-    title: "노화 관리",
+    title: "노화\n관리",
     body: "노화 신호와 피부 컨디션을 함께 고려한 안티에이징 관리 프로그램으로 회복 흐름을 세심하게 살핍니다.",
-    image: "/images/regain/signature-model-3.png",
+    image: "/images/regain/signature-model-3.jpg",
     alt: "안티에이징 관리 프로그램 모델 이미지",
     href: "/anti-aging",
   },

@@ -927,6 +927,134 @@ textarea {
   font-size: 0.76rem;
 }
 
+/* ── Signature vertical cards ── */
+
+.sig-carousel-shell {
+  position: relative;
+  padding: 0 28px;
+}
+
+.sig-carousel {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scroll-padding-inline: 16px;
+  scrollbar-width: none;
+}
+
+.sig-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.sig-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  scroll-snap-align: center;
+  aspect-ratio: 3 / 4;
+  transition: transform 250ms ease, box-shadow 250ms ease;
+}
+
+.sig-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 32px 64px rgba(42, 32, 53, 0.28);
+}
+
+.sig-card__inner {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.sig-card__inner img {
+  transition: transform 500ms ease;
+}
+
+.sig-card:hover .sig-card__inner img {
+  transform: scale(1.08);
+}
+
+.sig-card:hover .sig-card__overlay {
+  padding-bottom: 36px;
+}
+
+.sig-card__overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  z-index: 2;
+  padding: 80px 28px 28px;
+  background: linear-gradient(
+    to top,
+    rgba(42, 32, 53, 0.96) 0%,
+    rgba(74, 61, 107, 0.82) 55%,
+    transparent 100%
+  );
+  transition: padding 250ms ease;
+}
+
+.sig-card__number {
+  display: block;
+  margin-bottom: 8px;
+  font-family: "Philosopher", serif;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.14em;
+}
+
+.sig-card__title {
+  margin: 0 0 10px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.3;
+}
+
+.sig-card__title span {
+  display: block;
+}
+
+.sig-card__desc {
+  margin: 0 0 16px;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.7;
+}
+
+.sig-card__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: 0.95rem;
+  transition: background 200ms ease, border-color 200ms ease;
+}
+
+.sig-card:hover .sig-card__arrow {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: 900px) {
+  .sig-carousel {
+    grid-template-columns: repeat(3, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .sig-carousel {
+    grid-template-columns: repeat(3, minmax(260px, 1fr));
+  }
+}
+
+/* ── end Signature vertical cards ── */
+
 .carousel-dots--journal {
   margin-top: 28px;
 }

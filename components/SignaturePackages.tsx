@@ -14,7 +14,7 @@ export function SignaturePackages() {
   const carouselRef = useRef<HTMLDivElement | null>(null);
   const scrollCards = (direction: "prev" | "next") => {
     carouselRef.current?.scrollBy({
-      left: direction === "next" ? 420 : -420,
+      left: direction === "next" ? 380 : -380,
       behavior: "smooth",
     });
   };
@@ -28,28 +28,50 @@ export function SignaturePackages() {
           description="단일 시술이 아닌, 개인의 상태를 종합적으로 고려한 맞춤형 재생 프로그램입니다."
           align="center"
         />
-        <div className="carousel-shell">
-          <button className="carousel-arrow carousel-arrow--prev" type="button" aria-label="이전 시그니처 보기" onClick={() => scrollCards("prev")}>
+        <div className="sig-carousel-shell">
+          <button
+            className="carousel-arrow carousel-arrow--prev"
+            type="button"
+            aria-label="이전 시그니처 보기"
+            onClick={() => scrollCards("prev")}
+          >
             ‹
           </button>
-          <div ref={carouselRef} className="card-grid card-grid--three signature-carousel">
+          <div ref={carouselRef} className="sig-carousel">
             {signaturePackages.map((item, index) => (
-            <article key={item.title} className="feature-card" style={{ "--reveal-delay": `${index * 90}ms` } as CSSProperties}>
-              <span className="feature-card__number">0{index + 1}</span>
-              <div className="feature-card__image">
-                <Image src={assetPath(item.image)} alt={item.alt} fill sizes="(max-width: 900px) 100vw, 33vw" />
-              </div>
-              <div className="feature-card__body">
-                <h3>{item.title}</h3>
-                <p>{item.body}</p>
-                <Link href={item.href} className="feature-card__link">
-                  자세히 보기 <span aria-hidden="true">→</span>
+              <article
+                key={item.title}
+                className="sig-card"
+                style={{ "--reveal-delay": `${index * 90}ms` } as CSSProperties}
+              >
+                <Link href={item.href} className="sig-card__inner" aria-label={`${item.title} 자세히 보기`}>
+                  <Image
+                    src={assetPath(item.image)}
+                    alt={item.alt}
+                    fill
+                    sizes="(max-width: 900px) 80vw, 30vw"
+                    style={{ objectFit: "cover", objectPosition: "center top" }}
+                  />
+                  <div className="sig-card__overlay">
+                    <span className="sig-card__number">0{index + 1}</span>
+                    <h3 className="sig-card__title">
+                      {item.title.split("\n").map((line, i) => (
+                        <span key={i}>{line}</span>
+                      ))}
+                    </h3>
+                    <p className="sig-card__desc">{item.body}</p>
+                    <span className="sig-card__arrow" aria-hidden="true">→</span>
+                  </div>
                 </Link>
-              </div>
-            </article>
-          ))}
+              </article>
+            ))}
           </div>
-          <button className="carousel-arrow carousel-arrow--next" type="button" aria-label="다음 시그니처 보기" onClick={() => scrollCards("next")}>
+          <button
+            className="carousel-arrow carousel-arrow--next"
+            type="button"
+            aria-label="다음 시그니처 보기"
+            onClick={() => scrollCards("next")}
+          >
             ›
           </button>
           <div className="carousel-dots" aria-hidden="true">
