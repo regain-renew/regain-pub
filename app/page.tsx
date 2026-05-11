@@ -14,8 +14,10 @@ export default function HomePage() {
       <Header />
       <main>
         <HeroSection />
-        <SignaturePackages />
-        <CenterNavigation />
+        <div className="home-signature-nav-bg">
+          <SignaturePackages />
+          <CenterNavigation />
+        </div>
         <DoctorPhilosophy />
         <JournalMediaSection />
         <PrivateAppointmentForm />

@@ -1,12 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import { FormEvent, useState } from "react";
 
 import { FadeInSection } from "@/components/FadeInSection";
 import { SectionTitle } from "@/components/SectionTitle";
 import { appointmentBenefits, programOptions } from "@/data/homeSections";
-import { assetPath } from "@/lib/assets";
 
 type AppointmentFormState = {
   name: string;
@@ -44,12 +42,6 @@ export function PrivateAppointmentForm() {
     <FadeInSection id="private-appointment" className="section section--appointment">
       <div className="shell appointment">
         <div className="appointment__media">
-          <Image
-            src={assetPath("/images/regain/appointment-lobby.jpg")}
-            alt="리겐의원 프라이빗 상담 공간"
-            fill
-            sizes="(max-width: 900px) 100vw, 42vw"
-          />
           <div className="appointment__intro">
             <SectionTitle
               eyebrow="PRIVATE APPOINTMENT"
@@ -72,6 +64,7 @@ export function PrivateAppointmentForm() {
             이름
             <input
               type="text"
+              placeholder="이름을 입력해주세요"
               value={formState.name}
               onChange={(event) => setFormState({ ...formState, name: event.target.value })}
               required
@@ -81,6 +74,7 @@ export function PrivateAppointmentForm() {
             연락처
             <input
               type="tel"
+              placeholder="010-1234-5678"
               value={formState.phone}
               onChange={(event) => setFormState({ ...formState, phone: event.target.value })}
               required
