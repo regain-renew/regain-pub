@@ -7,15 +7,34 @@ import { globalCtas, navigationItems } from "@/data/navigation";
 import { MegaDropdown } from "@/components/MegaDropdown";
 
 const expandableMenus = navigationItems.filter((item) => item.children?.length);
+const languageOptions = [
+  { code: "KR", label: "한국어" },
+  { code: "EN", label: "English" },
+  { code: "CN", label: "中文" },
+  { code: "JP", label: "日本語" },
+];
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
   const [activeDesktopMenu, setActiveDesktopMenu] = useState<string | null>(null);
+  const [languageOpen, setLanguageOpen] = useState(false);
+  const [selectedLanguage, setSelectedLanguage] = useState(languageOptions[0]);
   const activeItem = navigationItems.find((item) => item.label === activeDesktopMenu);
 
+  const selectLanguage = (language: (typeof languageOptions)[number]) => {
+    setSelectedLanguage(language);
+    setLanguageOpen(false);
+  };
+
   return (
-    <header className="site-header" onMouseLeave={() => setActiveDesktopMenu(null)}>
+    <header
+      className="site-header"
+      onMouseLeave={() => {
+        setActiveDesktopMenu(null);
+        setLanguageOpen(false);
+      }}
+    >
       <div className="shell site-header__inner">
         <Link href="/" className="site-logo" aria-label="REGAIN CLINIC 홈">
           <span className="site-logo__mark" aria-hidden="true">
@@ -63,6 +82,37 @@ export function Header() {
           >
             <span>{mobileMenuOpen ? "Close" : "Menu"}</span>
           </button>
+          <div className="language-selector">
+            <button
+              type="button"
+              className="language-selector__button"
+              aria-haspopup="listbox"
+              aria-expanded={languageOpen}
+              onClick={() => setLanguageOpen((open) => !open)}
+            >
+              <span>{selectedLanguage.code}</span>
+              <span aria-hidden="true">▾</span>
+            </button>
+            {languageOpen ? (
+              <div className="language-selector__menu" role="listbox" aria-label="언어 선택">
+                {languageOptions.map((language) => (
+                  <button
+                    key={language.code}
+                    type="button"
+                    className={`language-selector__option ${
+                      selectedLanguage.code === language.code ? "is-active" : ""
+                    }`}
+                    role="option"
+                    aria-selected={selectedLanguage.code === language.code}
+                    onClick={() => selectLanguage(language)}
+                  >
+                    <span>{language.code}</span>
+                    <span>{language.label}</span>
+                  </button>
+                ))}
+              </div>
+            ) : null}
+          </div>
         </div>
       </div>
 
@@ -76,6 +126,20 @@ export function Header() {
           <Link href="/" className="mobile-menu__home" onClick={() => setMobileMenuOpen(false)}>
             HOME
           </Link>
+          <div className="mobile-language" aria-label="언어 선택">
+            {languageOptions.map((language) => (
+              <button
+                key={language.code}
+                type="button"
+                className={`mobile-language__button ${
+                  selectedLanguage.code === language.code ? "is-active" : ""
+                }`}
+                onClick={() => selectLanguage(language)}
+              >
+                {language.code}
+              </button>
+            ))}
+          </div>
           {expandableMenus.map((item) => {
             const isExpanded = expandedMenu === item.label;
             return (

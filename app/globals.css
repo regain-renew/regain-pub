@@ -157,7 +157,7 @@ textarea {
   margin: 0 0 16px;
   font-family: "Philosopher", serif;
   letter-spacing: 0.22em;
-  font-size: 0.84rem;
+  font-size: 1rem;
   font-weight: 400;
   color: var(--color-lilac);
   text-transform: uppercase;
@@ -437,6 +437,62 @@ textarea {
   gap: 10px;
 }
 
+.language-selector {
+  position: relative;
+}
+
+.language-selector__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 66px;
+  min-height: 44px;
+  padding: 0 14px;
+  border: 1px solid var(--color-slate);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--color-plum);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.language-selector__menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  z-index: 60;
+  display: grid;
+  min-width: 142px;
+  padding: 6px;
+  border: 1px solid var(--color-slate);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 18px 42px rgba(42, 32, 53, 0.12);
+}
+
+.language-selector__option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  min-height: 38px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--color-text);
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.language-selector__option:hover,
+.language-selector__option.is-active {
+  background: rgba(184, 170, 203, 0.18);
+  color: var(--color-plum);
+}
+
 .icon-cta {
   display: inline-flex;
   align-items: center;
@@ -457,6 +513,10 @@ textarea {
 }
 
 .mobile-menu {
+  display: none;
+}
+
+.mobile-language {
   display: none;
 }
 
@@ -912,22 +972,36 @@ textarea {
 .philosophy__cta {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  gap: 10px;
+  align-self: flex-start;
+  min-height: 50px;
   margin-top: 40px;
-  font-family: "Philosopher", serif;
-  font-size: 0.84rem;
-  letter-spacing: 0.18em;
-  color: var(--color-plum);
-  transition: gap 200ms ease;
+  padding: 0 24px;
+  border: 1px solid var(--color-plum);
+  border-radius: 4px;
+  background: var(--color-plum);
+  color: var(--color-white);
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  transition: background 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease;
 }
 
 .philosophy__cta:hover {
-  gap: 14px;
+  background: var(--color-purple);
+  border-color: var(--color-purple);
+  transform: translateY(-2px);
 }
 
 .philosophy__cta-arrow {
   font-size: 1rem;
   line-height: 1;
+  transition: transform 180ms ease;
+}
+
+.philosophy__cta:hover .philosophy__cta-arrow {
+  transform: translateX(5px);
 }
 
 .pill-list {
@@ -1530,6 +1604,7 @@ textarea {
   }
 
   .desktop-nav,
+  .site-header__cta .language-selector,
   .site-header__cta .icon-cta {
     display: none;
   }
@@ -1560,6 +1635,30 @@ textarea {
 
   .mobile-menu__inner {
     padding: 20px 0 24px;
+  }
+
+  .mobile-language {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+    padding: 8px 0 14px;
+    border-bottom: 1px solid rgba(65, 56, 78, 0.08);
+  }
+
+  .mobile-language__button {
+    min-height: 38px;
+    border: 1px solid var(--color-slate);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.82);
+    color: var(--color-plum);
+    font-size: 0.82rem;
+    font-weight: 600;
+  }
+
+  .mobile-language__button.is-active {
+    border-color: var(--color-purple);
+    background: var(--color-purple);
+    color: var(--color-white);
   }
 
   .mobile-menu__home,
