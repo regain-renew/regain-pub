@@ -67,12 +67,12 @@ export function Header() {
           <Link href={globalCtas[0].href} className="button button--primary button--sm">
             {globalCtas[0].label}
           </Link>
-          <Link href={globalCtas[3].href} className="icon-cta" aria-label={globalCtas[3].label}>
-            <span aria-hidden="true">☎</span>
-          </Link>
-          <Link href={globalCtas[4].href} className="icon-cta" aria-label={globalCtas[4].label}>
-            <span aria-hidden="true">⌖</span>
-          </Link>
+          {/*<Link href={globalCtas[3].href} className="icon-cta" aria-label={globalCtas[3].label}>*/}
+          {/*  <span aria-hidden="true">☎</span>*/}
+          {/*</Link>*/}
+          {/*<Link href={globalCtas[4].href} className="icon-cta" aria-label={globalCtas[4].label}>*/}
+          {/*  <span aria-hidden="true">⌖</span>*/}
+          {/*</Link>*/}
           <button
             type="button"
             className="mobile-menu-button"
