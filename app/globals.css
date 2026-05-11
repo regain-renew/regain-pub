@@ -848,6 +848,64 @@ textarea {
   margin-left: 0;
 }
 
+.philosophy .section-title h2 {
+  white-space: pre-line;
+}
+
+.philosophy__career {
+  margin-top: 36px;
+  padding-left: 16px;
+  border-left: 2px solid var(--color-plum);
+}
+
+.philosophy__career-label {
+  font-size: 0.78rem;
+  color: var(--color-lilac);
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+}
+
+.philosophy__career-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.philosophy__career-list li {
+  color: var(--color-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.philosophy__career-list li::before {
+  content: "• ";
+  color: var(--color-silver);
+}
+
+.philosophy__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 40px;
+  font-family: "Philosopher", serif;
+  font-size: 0.84rem;
+  letter-spacing: 0.18em;
+  color: var(--color-plum);
+  transition: gap 200ms ease;
+}
+
+.philosophy__cta:hover {
+  gap: 14px;
+}
+
+.philosophy__cta-arrow {
+  font-size: 1rem;
+  line-height: 1;
+}
+
 .pill-list {
   display: flex;
   flex-wrap: wrap;
@@ -895,9 +953,8 @@ textarea {
 }
 
 .journal-card {
-  display: grid;
-  grid-template-columns: 42% 58%;
-  min-height: 320px;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
   border-radius: var(--radius-md);
   transition: transform 250ms ease, box-shadow 250ms ease;
@@ -905,8 +962,8 @@ textarea {
 }
 
 .journal-card__image {
-  aspect-ratio: auto;
-  min-height: 100%;
+  aspect-ratio: 4 / 3;
+  flex-shrink: 0;
 }
 
 .journal-grid {
