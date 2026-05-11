@@ -29,7 +29,7 @@ export const signaturePackages = [
     href: "/signature#stemcell-care",
   },
   {
-    title: "노화\n관리",
+    title: "노화 관리",
     body: "노화 신호와 피부 컨디션을 함께 고려한 안티에이징 관리 프로그램으로 회복 흐름을 세심하게 살핍니다.",
     image: "/images/regain/signature_card_03.png",
     alt: "안티에이징 관리 프로그램 모델 이미지",
