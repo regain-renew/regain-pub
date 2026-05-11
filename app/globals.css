@@ -352,7 +352,7 @@ textarea {
   align-items: center;
   height: var(--header-height);
   font-size: 0.84rem;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 0.04em;
   color: var(--color-text);
 }
