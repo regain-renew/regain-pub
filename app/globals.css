@@ -581,7 +581,7 @@ textarea {
   border-radius: var(--radius-lg);
   background: var(--color-white);
   border: 0;
-  box-shadow: none;
+  box-shadow: 0 8px 32px rgba(91, 71, 136, 0.10);
 }
 
 .feature-card {
