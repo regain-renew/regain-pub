@@ -69,7 +69,7 @@ textarea {
 .home-signature-nav-bg {
   position: relative;
   overflow: hidden;
-  background: url("/images/regain/background.png") center / cover no-repeat;
+  background: var(--home-signature-nav-bg-image) center / cover no-repeat;
 }
 
 .home-signature-nav-bg > .section {
@@ -1208,7 +1208,7 @@ textarea {
 
 .appointment::before {
   width: 62%;
-  background: url("/images/regain/appointment-lobby.jpg") left center / cover no-repeat;
+  background: var(--appointment-bg-image) left center / cover no-repeat;
   opacity: 0.74;
 }
 

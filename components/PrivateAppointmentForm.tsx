@@ -1,10 +1,12 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import type { CSSProperties, FormEvent } from "react";
+import { useState } from "react";
 
 import { FadeInSection } from "@/components/FadeInSection";
 import { SectionTitle } from "@/components/SectionTitle";
 import { appointmentBenefits, programOptions } from "@/data/homeSections";
+import { assetPath } from "@/lib/assets";
 
 type AppointmentFormState = {
   name: string;
@@ -40,7 +42,14 @@ export function PrivateAppointmentForm() {
 
   return (
     <FadeInSection id="private-appointment" className="section section--appointment">
-      <div className="shell appointment">
+      <div
+        className="shell appointment"
+        style={
+          {
+            "--appointment-bg-image": `url("${assetPath("/images/regain/appointment-lobby.jpg")}")`,
+          } as CSSProperties
+        }
+      >
         <div className="appointment__media">
           <div className="appointment__intro">
             <SectionTitle

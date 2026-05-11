@@ -7,6 +7,8 @@ import { HeroSection } from "@/components/HeroSection";
 import { JournalMediaSection } from "@/components/JournalMediaSection";
 import { PrivateAppointmentForm } from "@/components/PrivateAppointmentForm";
 import { SignaturePackages } from "@/components/SignaturePackages";
+import { assetPath } from "@/lib/assets";
+import type { CSSProperties } from "react";
 
 export default function HomePage() {
   return (
@@ -14,7 +16,14 @@ export default function HomePage() {
       <Header />
       <main>
         <HeroSection />
-        <div className="home-signature-nav-bg">
+        <div
+          className="home-signature-nav-bg"
+          style={
+            {
+              "--home-signature-nav-bg-image": `url("${assetPath("/images/regain/background.png")}")`,
+            } as CSSProperties
+          }
+        >
           <SignaturePackages />
           <CenterNavigation />
         </div>
