@@ -12,7 +12,7 @@ export function HeroSection() {
     <section className="hero-section">
       <Image
         className="hero-section__background"
-        src={assetPath("/images/regain/hero-main-12.jpg")}
+        src={assetPath("/images/regain/hero_new.png")}
         alt="리겐의원 프리미엄 재생 클리닉 모델 이미지"
         fill
         sizes="100vw"

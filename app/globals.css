@@ -166,6 +166,11 @@ textarea {
   color: var(--color-plum);
 }
 
+.hero-section .hero-section__kicker {
+  color: var(--color-plum);
+  opacity: 0.7;
+}
+
 .section-title__description,
 .hero-section__description,
 .philosophy__copy p,
