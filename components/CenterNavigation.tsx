@@ -16,11 +16,11 @@ export function CenterNavigation() {
           align="center"
         />
         <div className="card-grid card-grid--four">
-          {centerNavigationCards.map((item, index) => (
+          {centerNavigationCards.map((item) => (
             <Link
               key={item.title}
               href={item.href}
-              className={`nav-card ${index === 0 ? "nav-card--featured" : ""}`}
+              className="nav-card"
             >
               <span className="nav-card__icon" aria-hidden="true">
                 <Image src={assetPath(item.icon)} alt="" width={88} height={88} />

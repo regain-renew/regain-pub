@@ -754,7 +754,7 @@ textarea {
   align-items: center;
   text-align: center;
   gap: 16px;
-  transition: transform 250ms ease, box-shadow 250ms ease, background 250ms ease;
+  transition: transform 250ms ease, box-shadow 250ms ease, background 250ms ease, color 250ms ease;
 }
 
 .nav-card:nth-child(1) {
@@ -773,16 +773,19 @@ textarea {
   --reveal-delay: 240ms;
 }
 
-.nav-card--featured {
-  background:
-    radial-gradient(circle at 16% 20%, rgba(255, 255, 255, 0.22), transparent 40%),
-    linear-gradient(135deg, #765f9e, #4d3b76);
+.nav-card:hover,
+.nav-card:focus-visible {
+  background: linear-gradient(135deg, #765f9e, #4d3b76);
 }
 
-.nav-card--featured h3,
-.nav-card--featured p,
-.nav-card--featured .nav-card__icon,
-.nav-card--featured .nav-card__arrow {
+.nav-card:hover h3,
+.nav-card:hover p,
+.nav-card:hover .nav-card__icon,
+.nav-card:hover .nav-card__arrow,
+.nav-card:focus-visible h3,
+.nav-card:focus-visible p,
+.nav-card:focus-visible .nav-card__icon,
+.nav-card:focus-visible .nav-card__arrow {
   color: var(--color-white);
 }
 
@@ -796,9 +799,11 @@ textarea {
   background: linear-gradient(135deg, rgba(247, 244, 251, 0.92), rgba(237, 232, 245, 0.92));
   box-shadow: inset 0 0 0 1px rgba(91, 71, 136, 0.08);
   color: var(--color-purple);
+  transition: background 250ms ease, color 250ms ease;
 }
 
-.nav-card--featured .nav-card__icon {
+.nav-card:hover .nav-card__icon,
+.nav-card:focus-visible .nav-card__icon {
   background: rgba(255, 255, 255, 0.15);
 }
 
@@ -807,9 +812,11 @@ textarea {
   height: 72px;
   object-fit: contain;
   opacity: 0.86;
+  transition: filter 250ms ease, opacity 250ms ease;
 }
 
-.nav-card--featured .nav-card__icon img {
+.nav-card:hover .nav-card__icon img,
+.nav-card:focus-visible .nav-card__icon img {
   filter: brightness(0) invert(1);
   opacity: 0.92;
 }
