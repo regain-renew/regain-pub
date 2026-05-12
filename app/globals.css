@@ -1857,3 +1857,604 @@ textarea {
     display: none;
   }
 }
+
+/* ════════════════════════════════════════════
+   SIGNATURE PAGE
+════════════════════════════════════════════ */
+
+/* 공통 */
+.sig-eyebrow {
+  margin: 0 0 14px;
+  font-family: "Philosopher", serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-lilac);
+}
+
+.sig-eyebrow--light {
+  color: rgba(199, 189, 217, 0.8);
+}
+
+.sig-section-head {
+  max-width: 640px;
+  margin: 0 auto 56px;
+  text-align: center;
+}
+
+.sig-section-head--light h2,
+.sig-heading--light {
+  color: #ffffff;
+}
+
+.sig-section-head h2 {
+  margin: 0 0 16px;
+  font-size: clamp(1.9rem, 2.8vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-plum);
+}
+
+.sig-section-head__desc {
+  margin: 0;
+  font-size: 0.96rem;
+  color: rgba(199, 189, 217, 0.75);
+  line-height: 1.85;
+}
+
+/* ── 01 HERO ───────────────────────────────── */
+.sig-hero {
+  position: relative;
+  min-height: 660px;
+  display: flex;
+  align-items: center;
+  padding: 100px 0;
+  overflow: hidden;
+}
+
+/* .sig-hero__overlay — removed */
+
+.sig-hero__inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.sig-hero__content {
+  max-width: 600px;
+}
+
+
+.sig-hero__title {
+  margin: 0 0 20px;
+  font-family: "Philosopher", serif;
+  font-size: clamp(1.9rem, 2.6vw, 3rem);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-plum);
+  word-break: keep-all;
+  white-space: pre-line;
+}
+
+.sig-hero__title em {
+  font-style: normal;
+  color: var(--color-purple);
+}
+
+.sig-hero__desc {
+  margin: 0 0 36px;
+  font-size: 1rem;
+  color: var(--color-muted);
+  line-height: 1.85;
+}
+
+.sig-hero__actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.sig-hero__btn-outline {
+  border-color: var(--color-purple) !important;
+  color: var(--color-purple) !important;
+}
+
+/* ── 02 CONCEPT ────────────────────────────── */
+.sig-concept {
+  padding: 100px 0;
+  background: linear-gradient(135deg, #2a2035 0%, #3b2d55 60%, #2a2035 100%);
+}
+
+.sig-concept__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.sig-concept-card {
+  padding: 36px 28px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  transition: background 200ms ease, transform 200ms ease;
+}
+
+.sig-concept-card:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-4px);
+}
+
+.sig-concept-card__icon {
+  display: block;
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+
+.sig-concept-card__title {
+  margin: 0 0 12px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.sig-concept-card__desc {
+  margin: 0;
+  font-size: 0.85rem;
+  color: rgba(199, 189, 217, 0.8);
+  line-height: 1.75;
+}
+
+/* ── 03 PROGRAMS OVERVIEW ───────────────────── */
+.sig-programs-overview {
+  padding: 100px 0;
+  background: linear-gradient(160deg, #251b38 0%, #2f2148 50%, #1e1630 100%);
+}
+
+.sig-programs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.sig-prog-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 250ms ease, box-shadow 250ms ease;
+}
+
+.sig-prog-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.3);
+}
+
+.sig-prog-card__image-wrap {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  background: var(--color-bg-strong);
+}
+
+.sig-prog-card__image-wrap img {
+  transition: transform 500ms ease;
+}
+
+.sig-prog-card:hover .sig-prog-card__image-wrap img {
+  transform: scale(1.06);
+}
+
+.sig-prog-card__num {
+  position: absolute;
+  top: 16px;
+  left: 18px;
+  z-index: 2;
+  font-family: "Philosopher", serif;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.1em;
+}
+
+.sig-prog-card__body {
+  padding: 24px 24px 28px;
+}
+
+.sig-prog-card__title {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 10px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.35;
+}
+
+.sig-prog-card__desc {
+  margin: 0;
+  font-size: 0.85rem;
+  color: rgba(199, 189, 217, 0.75);
+  line-height: 1.7;
+}
+
+/* ── PROGRAM DETAIL (04~06) ─────────────────── */
+.sig-prog-detail {
+  padding: 100px 0;
+  background: #ffffff;
+}
+
+.sig-prog-detail--tinted {
+  background: var(--color-bg);
+}
+
+.sig-prog-detail__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.sig-prog-detail--reverse .sig-prog-detail__inner {
+  direction: rtl;
+}
+
+.sig-prog-detail--reverse .sig-prog-detail__inner > * {
+  direction: ltr;
+}
+
+.sig-prog-detail__image-wrap {
+  position: relative;
+  height: 520px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--color-bg-strong);
+}
+
+.sig-prog-detail__title {
+  margin: 0 0 16px;
+  font-size: clamp(1.7rem, 2.4vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-plum);
+}
+
+.sig-prog-detail__lead {
+  margin: 0 0 16px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text);
+  line-height: 1.7;
+}
+
+.sig-prog-detail__body {
+  margin: 0 0 32px;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  line-height: 1.85;
+}
+
+.sig-mini-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.sig-mini-cards--four {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.sig-mini-card {
+  padding: 18px 16px;
+  border-radius: 10px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-slate);
+}
+
+.sig-mini-card__title {
+  margin: 0 0 8px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-plum);
+}
+
+.sig-mini-card__desc {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--color-muted);
+  line-height: 1.7;
+}
+
+/* ── 07 PROCESS ────────────────────────────── */
+.sig-process {
+  padding: 100px 0;
+  background: var(--color-bg);
+}
+
+.sig-process__flow {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.sig-process__flow::-webkit-scrollbar {
+  display: none;
+}
+
+.sig-process__item {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+}
+
+.sig-process__step {
+  flex: 1;
+  min-width: 0;
+  padding: 28px 20px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid var(--color-slate);
+  text-align: center;
+}
+
+.sig-process__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f0ecf9, #e4ddf5);
+}
+
+.sig-process__num {
+  display: block;
+  margin-bottom: 8px;
+  font-family: "Philosopher", serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-purple);
+}
+
+.sig-process__title {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-plum);
+  line-height: 1.4;
+}
+
+.sig-process__desc {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+.sig-process__arrow {
+  flex-shrink: 0;
+  padding: 0 8px;
+  font-size: 1rem;
+  color: var(--color-lilac);
+}
+
+/* ── 08 WHO NEEDS ──────────────────────────── */
+.sig-who {
+  padding: 100px 0;
+  background: #ffffff;
+}
+
+.sig-who__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sig-who__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 20px 24px;
+  border-radius: 12px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-slate);
+  font-size: 0.95rem;
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+.sig-who__check {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--color-purple);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+/* ── 09 NOTICE ─────────────────────────────── */
+.sig-notice {
+  padding: 48px 0;
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-slate);
+}
+
+.sig-notice .shell {
+  max-width: 820px;
+  text-align: center;
+}
+
+.sig-notice__label {
+  margin: 0 0 12px;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  color: var(--color-muted);
+  text-transform: uppercase;
+}
+
+.sig-notice__text {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  line-height: 1.9;
+}
+
+/* ── 10 FINAL CTA ──────────────────────────── */
+.sig-cta {
+  position: relative;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  padding: 100px 0;
+}
+
+.sig-cta__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(42, 32, 53, 0.92) 0%, rgba(74, 61, 107, 0.88) 100%);
+  z-index: 1;
+}
+
+.sig-cta__inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.sig-cta__title {
+  margin: 0 0 16px;
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.3;
+}
+
+.sig-cta__desc {
+  margin: 0 0 40px;
+  font-size: 0.96rem;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.85;
+}
+
+.sig-cta__actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.sig-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 32px;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.sig-cta__btn:hover {
+  transform: translateY(-2px);
+}
+
+.sig-cta__btn--primary {
+  background: var(--color-purple);
+  color: #ffffff;
+}
+
+.sig-cta__btn--outline {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: #ffffff;
+  background: transparent;
+}
+
+.sig-cta__btn--outline:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ── Signature 반응형 ───────────────────────── */
+@media (max-width: 900px) {
+  .sig-hero__inner,
+  .sig-prog-detail__inner {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .sig-prog-detail--reverse .sig-prog-detail__inner {
+    direction: ltr;
+  }
+
+  .sig-hero__overlay {
+    background: rgba(238, 234, 248, 0.85);
+  }
+
+  .sig-prog-detail__image-wrap {
+    height: 360px;
+  }
+
+  .sig-concept__grid,
+  .sig-programs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sig-process__flow {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .sig-process__item {
+    flex: 1 1 calc(33% - 12px);
+  }
+
+  .sig-process__arrow {
+    display: none;
+  }
+
+  .sig-mini-cards--four {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sig-who__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .sig-concept__grid,
+  .sig-programs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sig-mini-cards,
+  .sig-mini-cards--four {
+    grid-template-columns: 1fr;
+  }
+
+  .sig-process__item {
+    flex: 1 1 calc(50% - 12px);
+  }
+
+  .sig-hero__title {
+    font-size: 2rem;
+  }
+}
