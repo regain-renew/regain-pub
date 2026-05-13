@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { FloatingQuickMenu } from "@/components/FloatingQuickMenu";
 import { Header } from "@/components/Header";
+import { SigProgramsTabs } from "@/components/SigProgramsTabs";
 import { assetPath } from "@/lib/assets";
 
 /* ─────────────────────────────────────────────
@@ -16,51 +17,7 @@ const concepts = [
   { icon: "/images/regain/icons/sig/concept-ongoing.png",   title: "지속 관리", desc: "시술 이후 변화와\n유지 관리까지 고려합니다." },
 ];
 
-const programs = [
-  {
-    num: "01",
-    title: "전신의학 기반\n정밀 재생",
-    desc: "피부와 몸의 변화를 따로 보지 않고, 전체 컨디션의 흐름 속에서 회복 방향을 설계합니다.",
-    image: "/images/regain/signature_card_01.png",
-    alt: "전신의학 기반 정밀 재생",
-    href: "#program-01",
-  },
-  {
-    num: "02",
-    title: "부위별 맞춤\n줄기세포",
-    desc: "피부, 두피, 관절 등 관심 부위와 상태에 따라 맞춤형 관리 방향을 상담합니다.",
-    image: "/images/regain/signature_card_02.png",
-    alt: "부위별 맞춤 줄기세포",
-    href: "#program-02",
-  },
-  {
-    num: "03",
-    title: "두피·모발\n재생 클리닉",
-    desc: "두피 환경과 모발 컨디션을 함께 살피고, 개인에게 맞는 관리 방향을 제안합니다.",
-    image: "/images/regain/signature_card_03.png",
-    alt: "두피·모발 재생 클리닉",
-    href: "#program-03",
-  },
-];
 
-const program01Cards = [
-  { title: "컨디션 체크", desc: "개인의 피부·두피·생활 패턴을\n함께 확인합니다." },
-  { title: "정밀 상담", desc: "의료진 상담을 통해 적합한\n관리 방향을 설정합니다." },
-  { title: "회복 플랜", desc: "지속 가능한\n관리 흐름을 설계합니다." },
-];
-
-const program02Cards = [
-  { title: "피부", desc: "탄력, 건조감, 노화 신호를\n고려한 관리" },
-  { title: "두피", desc: "두피 환경과 모발 컨디션을\n고려한 관리" },
-  { title: "관절", desc: "관절과 움직임의 컨디션을\n고려한 관리" },
-  { title: "바디", desc: "전반적인 컨디션과\n회복 흐름을 고려한 관리" },
-];
-
-const program03Cards = [
-  { title: "두피 환경 체크", desc: "두피 상태와 민감도,\n건조감 등을 확인합니다." },
-  { title: "모발 컨디션 상담", desc: "모발 밀도와\n변화 양상을 상담합니다." },
-  { title: "맞춤 관리 계획", desc: "개인 상태에 따라 적합한\n관리 방향을 제안합니다." },
-];
 
 const processSteps = [
   { num: "01", icon: "/images/regain/icons/sig/process-booking.png",   title: "예약 및\n사전 상담", desc: "관심 부위와\n고민을 확인" },
@@ -105,18 +62,18 @@ export default function SignaturePage() {
 
           <div className="shell sig-hero__inner">
             <div className="sig-hero__content">
-              <p className="sig-eyebrow">SIGNATURE PROGRAM</p>
+              <p className="hero-section__kicker">개인의 회복 흐름을 설계하는</p>
               <h1 className="sig-hero__title">
-                {"개인의 회복 흐름을\n설계하는,\n"}
-                <em>리겐 시그니처 프로그램</em>
+                <span>REGAIN</span>
+                <span>SIGNATURE</span>
               </h1>
               <p className="sig-hero__desc">
                 피부, 두피, 관절, 노화 신호를 개별 증상이 아닌 하나의 컨디션 흐름으로 바라보고,
                 개인에게 맞는 정밀한 재생 관리를 제안합니다.
               </p>
               <div className="sig-hero__actions">
-                <Link href="#private-appointment" className="button button--primary">상담 예약하기</Link>
-                <Link href="#programs" className="button button--secondary sig-hero__btn-outline">프로그램 보기</Link>
+                <Link href="#private-appointment" className="button button--primary">프라이빗 상담 예약</Link>
+                {/*<Link href="#programs" className="button button--secondary sig-hero__btn-outline">프로그램 보기</Link>*/}
               </div>
             </div>
           </div>
@@ -125,10 +82,10 @@ export default function SignaturePage() {
         {/* ── 02 CONCEPT ──────────────────────────── */}
         <section className="sig-concept">
           <div className="shell">
-            <div className="sig-section-head sig-section-head--light">
-              <p className="sig-eyebrow sig-eyebrow--light">REGAIN SIGNATURE CONCEPT</p>
-              <h2 className="sig-heading--light">단일 시술이 아닌, 회복 설계</h2>
-              <p className="sig-section-head__desc">
+            <div className="sig-section-head">
+              <p className="sig-eyebrow">REGAIN SIGNATURE CONCEPT</p>
+              <h2>단일 시술이 아닌, 회복 설계</h2>
+              <p className="sig-section-head__desc sig-section-head__desc--dark">
                 리겐의 시그니처 프로그램은 단순히 하나의 시술을 권하는 방식이 아닙니다.
                 개인의 피부 상태, 두피 환경, 노화 신호, 생활 습관, 회복 속도까지 함께 살피고
                 의료진 상담을 통해 적합한 관리 방향을 설계합니다.
@@ -138,7 +95,7 @@ export default function SignaturePage() {
               {concepts.map((c) => (
                 <div key={c.title} className="sig-concept-card">
                   <span className="sig-concept-card__icon">
-                    <Image src={assetPath(c.icon)} alt={c.title} width={64} height={64} style={{ filter: "brightness(0) invert(1)", opacity: 0.9 }} />
+                    <Image src={assetPath(c.icon)} alt={c.title} width={64} height={64} style={{ filter: "brightness(0) saturate(100%) invert(18%) sepia(20%) saturate(800%) hue-rotate(230deg)", opacity: 0.85 }} />
                   </span>
                   <h3 className="sig-concept-card__title">{c.title}</h3>
                   <p className="sig-concept-card__desc">
@@ -160,28 +117,7 @@ export default function SignaturePage() {
                 각 프로그램은 독립적으로 운영되며, 개인의 상태와 상담 결과에 따라 복합 구성도 가능합니다.
               </p>
             </div>
-            <div className="sig-programs-grid">
-              {programs.map((p) => (
-                <Link key={p.num} href={p.href} className="sig-prog-card">
-                  <div className="sig-prog-card__image-wrap">
-                    <Image
-                      src={assetPath(p.image)}
-                      alt={p.alt}
-                      fill
-                      sizes="(max-width: 900px) 90vw, 33vw"
-                      style={{ objectFit: "cover", objectPosition: "center top" }}
-                    />
-                    <span className="sig-prog-card__num">{p.num}</span>
-                  </div>
-                  <div className="sig-prog-card__body">
-                    <h3 className="sig-prog-card__title">
-                      {p.title.split("\n").map((line, i) => <span key={i}>{line}</span>)}
-                    </h3>
-                    <p className="sig-prog-card__desc">{p.desc}</p>
-                  </div>
-                </Link>
-              ))}
-            </div>
+            <SigProgramsTabs />
           </div>
         </section>
 
@@ -208,7 +144,11 @@ export default function SignaturePage() {
                 리겐의 전신의학 기반 정밀 재생 프로그램은 개인의 전반적인 컨디션과 회복 흐름을 함께 고려하여 필요한 관리 방향을 제안합니다.
               </p>
               <div className="sig-mini-cards">
-                {program01Cards.map((c) => (
+                {[
+                  { title: "컨디션 체크", desc: "개인의 피부·두피·생활 패턴을\n함께 확인합니다." },
+                  { title: "정밀 상담", desc: "의료진 상담을 통해 적합한\n관리 방향을 설정합니다." },
+                  { title: "회복 플랜", desc: "지속 가능한\n관리 흐름을 설계합니다." },
+                ].map((c) => (
                   <div key={c.title} className="sig-mini-card">
                     <h4 className="sig-mini-card__title">{c.title}</h4>
                     <p className="sig-mini-card__desc">
@@ -235,7 +175,12 @@ export default function SignaturePage() {
                 피부 탄력, 두피 환경, 관절 컨디션 등 각 부위별 고민에 맞춰 세심한 상담과 관리 계획을 제공합니다.
               </p>
               <div className="sig-mini-cards sig-mini-cards--four">
-                {program02Cards.map((c) => (
+                {[
+                  { title: "피부", desc: "탄력, 건조감, 노화 신호를\n고려한 관리" },
+                  { title: "두피", desc: "두피 환경과 모발 컨디션을\n고려한 관리" },
+                  { title: "관절", desc: "관절과 움직임의 컨디션을\n고려한 관리" },
+                  { title: "바디", desc: "전반적인 컨디션과\n회복 흐름을 고려한 관리" },
+                ].map((c) => (
                   <div key={c.title} className="sig-mini-card">
                     <h4 className="sig-mini-card__title">{c.title}</h4>
                     <p className="sig-mini-card__desc">
@@ -280,7 +225,11 @@ export default function SignaturePage() {
                 리겐은 두피 환경과 모발 상태를 세심하게 확인하고, 의료진 상담을 통해 적합한 관리 계획을 안내합니다.
               </p>
               <div className="sig-mini-cards">
-                {program03Cards.map((c) => (
+                {[
+                  { title: "두피 환경 체크", desc: "두피 상태와 민감도,\n건조감 등을 확인합니다." },
+                  { title: "모발 컨디션 상담", desc: "모발 밀도와\n변화 양상을 상담합니다." },
+                  { title: "맞춤 관리 계획", desc: "개인 상태에 따라 적합한\n관리 방향을 제안합니다." },
+                ].map((c) => (
                   <div key={c.title} className="sig-mini-card">
                     <h4 className="sig-mini-card__title">{c.title}</h4>
                     <p className="sig-mini-card__desc">
