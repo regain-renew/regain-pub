@@ -81,6 +81,15 @@ export default function SignaturePage() {
 
         {/* ── 02 CONCEPT ──────────────────────────── */}
         <section className="sig-concept">
+          <div className="sig-concept__bg" aria-hidden="true">
+            <Image
+              src={assetPath("/images/signature/background.png")}
+              alt=""
+              fill
+              sizes="100vw"
+              style={{ objectFit: "cover" }}
+            />
+          </div>
           <div className="shell">
             <div className="sig-section-head">
               <p className="sig-eyebrow">REGAIN SIGNATURE CONCEPT</p>

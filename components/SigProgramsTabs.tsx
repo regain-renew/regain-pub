@@ -87,17 +87,15 @@ export function SigProgramsTabs() {
                 style={{ objectFit: "cover", objectPosition: "center top" }}
               />
               <div className="sig-prog-tab__overlay" aria-hidden="true" />
-              <span className="sig-prog-tab__num">{tab.num}</span>
+              <div className="sig-prog-tab__text">
+                <span className="sig-prog-tab__num">{tab.num}</span>
+                <h3 className="sig-prog-tab__title">
+                  {tab.title.split("\n").map((line, j) => (
+                    <span key={j}>{line}</span>
+                  ))}
+                </h3>
+              </div>
             </div>
-            <div className="sig-prog-tab__body">
-              <h3 className="sig-prog-tab__title">
-                {tab.title.split("\n").map((line, j) => (
-                  <span key={j}>{line}</span>
-                ))}
-              </h3>
-              <p className="sig-prog-tab__desc">{tab.desc}</p>
-            </div>
-            <span className="sig-prog-tab__active-bar" aria-hidden="true" />
           </button>
         ))}
       </div>

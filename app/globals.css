@@ -1967,8 +1967,27 @@ textarea {
 
 /* ── 02 CONCEPT ────────────────────────────── */
 .sig-concept {
+  position: relative;
   padding: 100px 0;
   background: var(--color-bg);
+  overflow: hidden;
+}
+
+.sig-concept__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.sig-concept__bg img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.sig-concept > .shell {
+  position: relative;
+  z-index: 1;
 }
 
 .sig-concept__grid {
@@ -2130,56 +2149,63 @@ textarea {
   position: relative;
   aspect-ratio: 3 / 4;
   background: var(--color-bg-strong);
+  width: 100%;
 }
 
 .sig-prog-tab__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(30, 20, 50, 0.7) 0%, transparent 60%);
+  background: linear-gradient(to top, rgba(20, 12, 40, 0.82) 0%, rgba(20, 12, 40, 0.2) 55%, transparent 100%);
   z-index: 1;
+  transition: background 250ms ease;
+}
+
+.sig-prog-tab--active .sig-prog-tab__overlay {
+  background: linear-gradient(to top, rgba(20, 12, 40, 0.9) 0%, rgba(80, 50, 130, 0.35) 55%, transparent 100%);
+}
+
+.sig-prog-tab__text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  padding: 20px 20px 22px;
 }
 
 .sig-prog-tab__num {
-  position: absolute;
-  top: 16px;
-  left: 18px;
-  z-index: 2;
+  display: block;
+  margin-bottom: 6px;
   font-family: "Philosopher", serif;
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.7);
-  letter-spacing: 0.1em;
-}
-
-.sig-prog-tab__body {
-  padding: 22px 22px 26px;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.18em;
 }
 
 .sig-prog-tab__title {
   display: flex;
   flex-direction: column;
-  margin: 0 0 8px;
-  font-size: 1.1rem;
+  margin: 0;
+  font-size: 1.05rem;
   font-weight: 700;
   color: #ffffff;
   line-height: 1.35;
+  text-align: left;
 }
 
-.sig-prog-tab__desc {
-  margin: 0;
-  font-size: 0.82rem;
-  color: rgba(210, 200, 232, 0.8);
-  line-height: 1.7;
+.sig-prog-tab--active .sig-prog-tab__title {
+  color: #ffffff;
 }
 
-.sig-prog-tab__active-bar {
-  display: block;
+.sig-prog-tab--active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   height: 3px;
-  background: transparent;
-  transition: background 200ms ease;
-}
-
-.sig-prog-tab--active .sig-prog-tab__active-bar {
   background: var(--color-lavender);
+  border-radius: 0 0 16px 16px;
 }
 
 /* ── PROGRAM PANEL ──────────────────────────── */
