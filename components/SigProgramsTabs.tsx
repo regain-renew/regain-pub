@@ -78,24 +78,12 @@ export function SigProgramsTabs() {
             onClick={() => setActive(i)}
             aria-pressed={active === i}
           >
-            <div className="sig-prog-tab__image-wrap">
-              <Image
-                src={assetPath(tab.image)}
-                alt={tab.alt}
-                fill
-                sizes="(max-width: 900px) 90vw, 33vw"
-                style={{ objectFit: "cover", objectPosition: "center top" }}
-              />
-              <div className="sig-prog-tab__overlay" aria-hidden="true" />
-              <div className="sig-prog-tab__text">
-                <span className="sig-prog-tab__num">{tab.num}</span>
-                <h3 className="sig-prog-tab__title">
-                  {tab.title.split("\n").map((line, j) => (
-                    <span key={j}>{line}</span>
-                  ))}
-                </h3>
-              </div>
-            </div>
+            <span className="sig-prog-tab__num">{tab.num}</span>
+            <span className="sig-prog-tab__title">
+              {tab.title.split("\n").map((line, j) => (
+                <span key={j}>{line}</span>
+              ))}
+            </span>
           </button>
         ))}
       </div>

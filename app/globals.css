@@ -2115,97 +2115,68 @@ textarea {
 
 /* ── PROGRAMS TABS ──────────────────────────── */
 .sig-prog-tabs {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin-bottom: 48px;
+  display: flex;
+  gap: 0;
+  margin-bottom: 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .sig-prog-tab {
   position: relative;
+  flex: 1;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 20px 28px 22px;
   border: none;
-  border-radius: 16px;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.05);
+  background: transparent;
   cursor: pointer;
-  transition: transform 250ms ease, box-shadow 250ms ease;
   text-align: left;
-  padding: 0;
+  transition: background 200ms ease;
 }
 
 .sig-prog-tab:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .sig-prog-tab--active {
-  box-shadow: 0 0 0 2px var(--color-lavender), 0 20px 40px rgba(0, 0, 0, 0.35);
-  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.07);
 }
 
-.sig-prog-tab__image-wrap {
-  position: relative;
-  aspect-ratio: 3 / 4;
-  background: var(--color-bg-strong);
-  width: 100%;
-}
-
-.sig-prog-tab__overlay {
+.sig-prog-tab--active::after {
+  content: "";
   position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(20, 12, 40, 0.82) 0%, rgba(20, 12, 40, 0.2) 55%, transparent 100%);
-  z-index: 1;
-  transition: background 250ms ease;
-}
-
-.sig-prog-tab--active .sig-prog-tab__overlay {
-  background: linear-gradient(to top, rgba(20, 12, 40, 0.9) 0%, rgba(80, 50, 130, 0.35) 55%, transparent 100%);
-}
-
-.sig-prog-tab__text {
-  position: absolute;
-  bottom: 0;
+  bottom: -1px;
   left: 0;
   right: 0;
-  z-index: 2;
-  padding: 20px 20px 22px;
+  height: 2px;
+  background: var(--color-lavender);
 }
 
 .sig-prog-tab__num {
-  display: block;
-  margin-bottom: 6px;
   font-family: "Philosopher", serif;
-  font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.6);
-  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  color: rgba(200, 190, 225, 0.6);
+  letter-spacing: 0.2em;
+}
+
+.sig-prog-tab--active .sig-prog-tab__num {
+  color: var(--color-lavender);
 }
 
 .sig-prog-tab__title {
   display: flex;
   flex-direction: column;
   margin: 0;
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 700;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.65);
   line-height: 1.35;
-  text-align: left;
 }
 
 .sig-prog-tab--active .sig-prog-tab__title {
   color: #ffffff;
-}
-
-.sig-prog-tab--active::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: var(--color-lavender);
-  border-radius: 0 0 16px 16px;
 }
 
 /* ── PROGRAM PANEL ──────────────────────────── */
