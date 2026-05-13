@@ -1883,17 +1883,17 @@ textarea {
   text-align: center;
 }
 
-.sig-section-head--light h2,
-.sig-heading--light {
-  color: #ffffff;
-}
-
 .sig-section-head h2 {
   margin: 0 0 16px;
   font-size: clamp(1.9rem, 2.8vw, 2.8rem);
   font-weight: 700;
   line-height: 1.25;
   color: var(--color-plum);
+}
+
+.sig-section-head--light h2,
+.sig-heading--light {
+  color: #ffffff;
 }
 
 
@@ -2106,11 +2106,11 @@ textarea {
 
 /* eyebrow / heading brighter for dark-bg sections */
 .sig-eyebrow--light {
-  color: rgba(230, 222, 245, 0.95);
+  color: rgba(220, 210, 240, 1);
 }
 .sig-section-head--light .sig-section-head__desc,
 .sig-programs-overview .sig-section-head__desc {
-  color: rgba(210, 200, 232, 0.85);
+  color: rgba(220, 210, 240, 0.9);
 }
 
 /* ── PROGRAMS TABS ──────────────────────────── */
