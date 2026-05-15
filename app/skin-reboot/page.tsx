@@ -16,39 +16,39 @@ const solutions = [
     num: "01",
     title: "스킨 부스터",
     desc: "피부 깊은 곳에 수분과 영양을 집중 공급하여 촉촉하고 윤기 있는 피부 컨디션을 회복합니다.",
-    image: "/images/skin-reboot/solution-01.jpg",
+    image: "/images/skin-reboot/solution-01.png",
     tags: ["수분 공급", "탄력 개선", "광채 회복"],
   },
   {
     num: "02",
     title: "바이오 스티뮬레이터",
     desc: "콜라겐 생성을 자극하여 피부 탄력을 근본적으로 개선하고, 자연스러운 볼륨과 윤곽을 되살립니다.",
-    image: "/images/skin-reboot/solution-02.jpg",
+    image: "/images/skin-reboot/solution-02.png",
     tags: ["콜라겐 재생", "탄력 회복", "볼륨 개선"],
   },
   {
     num: "03",
     title: "피부 레이저",
     desc: "색소 침착, 모공, 피부결 등 다양한 피부 고민을 레이저로 정밀하게 개선합니다.",
-    image: "/images/skin-reboot/solution-03.jpg",
+    image: "/images/skin-reboot/solution-03.png",
     tags: ["색소 개선", "모공 축소", "피부결 정돈"],
   },
   {
     num: "04",
     title: "스킨케어",
     desc: "피부 기초를 탄탄하게 다잡는 전문 케어로, 장기적인 피부 건강을 설계합니다.",
-    image: "/images/skin-reboot/solution-04.jpg",
+    image: "/images/skin-reboot/solution-04.png",
     tags: ["기초 케어", "피부 진정", "컨디션 유지"],
   },
 ];
 
 const processSteps = [
-  { num: "01", title: "피부 고민\n확인",    desc: "현재 피부 상태와\n고민 사항 파악" },
-  { num: "02", title: "피부 상태\n체크",    desc: "피부 컨디션과\n변화 흐름 분석" },
-  { num: "03", title: "의료진\n상담",        desc: "전문의 1:1\n심층 상담 진행" },
-  { num: "04", title: "맞춤 솔루션\n설계",  desc: "적합한 케어\n방향 제안" },
-  { num: "05", title: "프로그램\n진행",      desc: "안전하고 정밀한\n관리 진행" },
-  { num: "06", title: "사후\n관리",          desc: "회복 흐름과\n유지 관리 안내" },
+  { num: "01", title: "피부 고민\n확인",   desc: "현재 피부 상태와\n고민 사항 파악",   icon: "/images/signature/icon11.png" },
+  { num: "02", title: "피부 상태\n체크",   desc: "피부 컨디션과\n변화 흐름 분석",     icon: "/images/signature/pr02.png"   },
+  { num: "03", title: "의료진\n상담",       desc: "전문의 1:1\n심층 상담 진행",        icon: "/images/signature/pr04.png"   },
+  { num: "04", title: "맞춤 솔루션\n설계", desc: "적합한 케어\n방향 제안",            icon: "/images/signature/pr03.png"   },
+  { num: "05", title: "프로그램\n진행",     desc: "안전하고 정밀한\n관리 진행",        icon: "/images/signature/pr01.png"   },
+  { num: "06", title: "사후\n관리",         desc: "회복 흐름과\n유지 관리 안내",       icon: "/images/signature/pr05.png"   },
 ];
 
 const whoNeeds = [
@@ -142,46 +142,62 @@ export default function SkinRebootPage() {
           </div>
         </section>
 
-        {/* ── 05 PROCESS ──────────────────────────── */}
-        <section className="sr-process" data-sig-section>
-          <SigScrollTrigger />
-          <div className="shell">
-            <div className="sr-section-head">
-              <p className="sr-eyebrow">SKIN REBOOT PROCESS</p>
-              <h2>리겐의 스킨 리부트 진행 프로세스</h2>
-            </div>
-            <div className="sr-process__flow">
-              {processSteps.map((step, i) => (
-                <div key={step.num} className="sr-process__item">
-                  <div className="sr-process__step">
-                    <span className="sr-process__num">{step.num}</span>
-                    <h3 className="sr-process__title">
-                      {step.title.split("\n").map((line, j) => <span key={j}>{line}</span>)}
-                    </h3>
-                    <p className="sr-process__desc">
-                      {step.desc.split("\n").map((line, j) => <span key={j}>{line}</span>)}
-                    </p>
+        {/* ── 05 PROCESS + 06 WHO NEEDS (공유 배경) ── */}
+        <div className="sr-process-who-wrap">
+          <Image
+            src={assetPath("/images/regain/background.png")}
+            alt=""
+            fill
+            sizes="100vw"
+            style={{ objectFit: "cover" }}
+            aria-hidden="true"
+          />
+
+          <section className="sr-process" data-sig-section>
+            <SigScrollTrigger />
+            <div className="shell">
+              <div className="sr-section-head">
+                <p className="sr-eyebrow">SKIN REBOOT PROCESS</p>
+                <h2>리겐의 스킨 리부트 진행 프로세스</h2>
+              </div>
+              <div className="sr-process__flow">
+                {processSteps.map((step, i) => (
+                  <div key={step.num} className="sr-process__item">
+                    <div className="sr-process__step">
+                      <span className="sr-process__icon">
+                        <Image
+                          src={assetPath(step.icon)}
+                          alt={step.title.replace("\n", " ")}
+                          width={40}
+                          height={40}
+                          style={{ objectFit: "contain" }}
+                        />
+                      </span>
+                      <span className="sr-process__num">{step.num}</span>
+                      <h3 className="sr-process__title">
+                        {step.title.split("\n").map((line, j) => <span key={j}>{line}</span>)}
+                      </h3>
+                      <p className="sr-process__desc">
+                        {step.desc.split("\n").map((line, j) => <span key={j}>{line}</span>)}
+                      </p>
+                    </div>
+                    {i < processSteps.length - 1 && (
+                      <span className="sr-process__arrow" aria-hidden="true">→</span>
+                    )}
                   </div>
-                  {i < processSteps.length - 1 && (
-                    <span className="sr-process__arrow" aria-hidden="true">→</span>
-                  )}
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* ── 06 WHO NEEDS + NOTICE ───────────────── */}
-        <section className="sr-info" data-sig-section>
-          <SigScrollTrigger />
-          <div className="shell sr-info__inner">
-
-            <div className="sr-who-col">
-              <div className="sr-section-head sr-section-head--left">
+          <section className="sr-who" data-sig-section>
+            <SigScrollTrigger />
+            <div className="shell">
+              <div className="sr-section-head">
                 <p className="sr-eyebrow">WHO NEEDS SKIN REBOOT</p>
                 <h2>이런 분께 권합니다</h2>
               </div>
-              <ul className="sr-who__grid sr-who__grid--col">
+              <ul className="sr-who__grid">
                 {whoNeeds.map((item) => (
                   <li key={item} className="sr-who__item">
                     <span className="sr-who__check" aria-hidden="true">✓</span>
@@ -194,20 +210,31 @@ export default function SkinRebootPage() {
                 ))}
               </ul>
             </div>
+          </section>
+        </div>
 
-            <div className="sr-notice-col">
-              <p className="sr-notice__label">NOTICE</p>
-              <h3 className="sr-notice__title">스킨 리부트 프로그램 안내</h3>
-              <ul className="sr-notice__list">
-                <li>모든 시술은 개인의 피부 상태와 상담 결과에 따라 적합 여부가 달라질 수 있습니다.</li>
-                <li>시술 결과와 회복 기간은 개인에 따라 차이가 있을 수 있으며, 정확한 내용은 의료진 상담을 통해 안내됩니다.</li>
-              </ul>
-            </div>
-
+        {/* ── 07 NOTICE ───────────────────────────── */}
+        <section className="sr-notice" data-sig-section>
+          <SigScrollTrigger />
+          <Image
+            src={assetPath("/images/signature/notice-background.png")}
+            alt=""
+            fill
+            sizes="100vw"
+            style={{ objectFit: "cover" }}
+            aria-hidden="true"
+          />
+          <div className="shell sr-notice__shell">
+            <p className="sr-notice__label">NOTICE</p>
+            <h3 className="sr-notice__title">스킨 리부트 프로그램 안내</h3>
+            <ul className="sr-notice__list">
+              <li>모든 시술은 개인의 피부 상태와 상담 결과에 따라 적합 여부가 달라질 수 있습니다.</li>
+              <li>시술 결과와 회복 기간은 개인에 따라 차이가 있을 수 있으며, 정확한 내용은 의료진 상담을 통해 안내됩니다.</li>
+            </ul>
           </div>
         </section>
 
-        {/* ── 07 FINAL CTA ────────────────────────── */}
+        {/* ── 08 FINAL CTA ────────────────────────── */}
         <section className="sr-cta" id="appointment" data-sig-section>
           <SigScrollTrigger />
           <Image
@@ -229,22 +256,16 @@ export default function SkinRebootPage() {
               피부 고민은 개인마다 원인과 흐름이 다릅니다.<br />
               리겐의원은 의료진 상담을 통해 개인에게 적합한 관리 방향을 안내합니다.
             </p>
-            <div className="sr-cta__cards">
-              <a href="tel:0212345678" className="sr-cta-card">
-                <span className="sr-cta-card__icon">📞</span>
-                <span className="sr-cta-card__label">전화 상담</span>
-                <span className="sr-cta-card__sub">02-1234-5678</span>
-              </a>
-              <a href="#kakao-consult" className="sr-cta-card">
-                <span className="sr-cta-card__icon">💬</span>
-                <span className="sr-cta-card__label">카카오 상담</span>
-                <span className="sr-cta-card__sub">채널 바로가기</span>
-              </a>
-              <a href="#naver-booking" className="sr-cta-card">
-                <span className="sr-cta-card__icon">📅</span>
-                <span className="sr-cta-card__label">네이버 예약</span>
-                <span className="sr-cta-card__sub">간편하게 예약</span>
-              </a>
+            <div className="sr-cta__actions">
+              <Link href="#appointment" className="sr-cta__btn sr-cta__btn--primary">
+                스킨 리부트 상담 예약
+              </Link>
+              <Link href="#kakao-consult" className="sr-cta__btn sr-cta__btn--outline">
+                💬 카카오 상담
+              </Link>
+              <Link href="#naver-booking" className="sr-cta__btn sr-cta__btn--outline">
+                📅 네이버 예약
+              </Link>
             </div>
           </div>
         </section>
