@@ -4714,17 +4714,13 @@ textarea {
   padding: 100px 0;
   background: var(--color-bg);
 }
-.ct-category__inner {
-  display: flex;
-  gap: 60px;
-  align-items: flex-start;
-}
 .ct-category__header {
-  flex: 0 0 260px;
+  text-align: center;
+  margin-bottom: 48px;
 }
 .ct-category__header h2 {
   margin: 0;
-  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  font-size: clamp(1.6rem, 2.5vw, 2.4rem);
   font-weight: 700;
   color: var(--color-plum);
   line-height: 1.3;
@@ -4738,47 +4734,64 @@ textarea {
 .ct-category-card {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding: 32px 28px;
+  gap: 8px;
+  padding: 28px 24px;
   border-radius: var(--radius-lg);
   background: #ffffff;
-  box-shadow: var(--shadow-card);
-  transition: transform 220ms ease, box-shadow 220ms ease;
+  border: 1px solid var(--color-slate);
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms;
 }
 .ct-category-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 28px 70px rgba(91,71,136,0.14);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 48px rgba(91,71,136,0.1);
+  border-color: var(--color-lilac);
+}
+.ct-category-card__icon-wrap {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 6px;
 }
 .ct-category-card__num {
   font-family: "Philosopher", serif;
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   letter-spacing: 0.18em;
-  color: var(--color-purple);
+  color: var(--color-silver);
 }
 .ct-category-card__name {
   margin: 0;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: var(--color-plum);
 }
 .ct-category-card__desc {
   margin: 0;
-  font-size: 0.85rem;
+  font-size: 0.83rem;
   color: var(--color-muted);
   line-height: 1.6;
 }
 .ct-category-card__tags {
-  margin: 0;
-  font-size: 0.78rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 2px;
+}
+.ct-category-card__tags span {
+  font-size: 0.75rem;
   color: var(--color-purple);
+  background: var(--color-bg);
+  padding: 3px 9px;
+  border-radius: 20px;
   font-weight: 500;
-  line-height: 1.6;
 }
 .ct-category-card__link {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   margin-top: auto;
-  padding-top: 16px;
-  font-size: 0.85rem;
+  padding-top: 14px;
+  font-size: 0.83rem;
   font-weight: 600;
   color: var(--color-purple);
   transition: color 160ms;
@@ -4792,89 +4805,90 @@ textarea {
   padding: 100px 0;
   background: #ffffff;
 }
+.ct-face__inner {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.ct-face__heading {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.ct-face__title {
+  margin: 0;
+  font-size: clamp(1.8rem, 2.4vw, 2.6rem);
+  font-weight: 700;
+  color: var(--color-plum);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+.ct-face__desc {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--color-muted);
+  line-height: 1.75;
+}
 .ct-face__cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  gap: 20px;
 }
 .ct-face-card {
   display: flex;
   flex-direction: column;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-card);
   background: #ffffff;
-  transition: transform 220ms ease;
+  border: 1px solid var(--color-slate);
+  transition: transform 220ms ease, box-shadow 220ms ease;
 }
 .ct-face-card:hover {
   transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(91,71,136,0.1);
+}
+.ct-face-card__image-wrap {
+  padding: 14px 14px 0;
 }
 .ct-face-card__image {
   position: relative;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 5 / 4;
   background: var(--color-bg-strong);
+  border-radius: 8px;
+  overflow: hidden;
 }
 .ct-face-card__body {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding: 24px 24px 20px;
-  flex: 1;
+  gap: 8px;
+  padding: 16px 18px 20px;
 }
 .ct-face-card__name {
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--color-plum);
 }
 .ct-face-card__sub {
   margin: 0;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--color-muted);
   line-height: 1.6;
 }
 .ct-face-card__tags {
   display: flex;
-  gap: 6px;
+  gap: 5px;
   flex-wrap: wrap;
+  margin-top: 2px;
 }
 .ct-face-card__tag {
-  padding: 4px 10px;
+  padding: 3px 9px;
   border-radius: 20px;
   background: var(--color-bg);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   color: var(--color-purple);
   font-weight: 500;
-}
-.ct-face-card__detail {
-  margin-top: auto;
-  padding-top: 12px;
-  border-top: 1px solid var(--color-slate);
-}
-.ct-face-card__detail-toggle {
-  cursor: pointer;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--color-purple);
-  list-style: none;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-.ct-face-card__detail-toggle::-webkit-details-marker { display: none; }
-.ct-face-card__detail-toggle::after {
-  content: "+";
-  font-size: 1rem;
-  transition: transform 220ms ease;
-}
-.ct-face-card__detail[open] .ct-face-card__detail-toggle::after {
-  transform: rotate(45deg);
-}
-.ct-face-card__detail-body {
-  margin: 10px 0 0;
-  font-size: 0.84rem;
-  color: var(--color-muted);
-  line-height: 1.75;
 }
 
 /* ── 04 BODY CONTOURING ── */
@@ -5530,14 +5544,14 @@ textarea {
 
 /* ── 반응형 ── */
 @media (max-width: 1200px) {
-  .ct-category__inner { flex-direction: column; gap: 36px; }
-  .ct-category__header { flex: none; }
+  .ct-face__inner { grid-template-columns: 220px 1fr; gap: 48px; }
 }
 
 @media (max-width: 900px) {
   .ct-hero { min-height: 500px; }
-  .ct-category__cards { grid-template-columns: 1fr; max-width: 480px; }
-  .ct-face__cards { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+  .ct-category__cards { grid-template-columns: repeat(3, 1fr); }
+  .ct-face__inner { grid-template-columns: 1fr; gap: 40px; }
+  .ct-face__cards { grid-template-columns: repeat(3, 1fr); }
   .ct-body__cards { grid-template-columns: 1fr; }
   .ct-sweat__diff-cards { grid-template-columns: 1fr; }
   .ct-sweat__compare { grid-template-columns: 1fr; max-width: 400px; }
@@ -5551,6 +5565,8 @@ textarea {
 
 @media (max-width: 640px) {
   .ct-hero__title { font-size: 2.6rem; }
+  .ct-category__cards { grid-template-columns: 1fr; }
+  .ct-face__cards { grid-template-columns: 1fr; }
   .ct-process__item { flex: 0 0 100%; }
   .ct-cta__actions { flex-direction: column; align-items: center; }
   .ct-cta__anchors { flex-direction: column; gap: 12px; }

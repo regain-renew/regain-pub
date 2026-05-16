@@ -15,22 +15,25 @@ const categoryCards = [
     num: "01",
     name: "얼굴형 교정",
     desc: "꺼짐·볼륨·턱선·얼굴선 균형이 고민",
-    tags: "맞춤 필러 / 레디어스 / 실리프팅",
+    tags: ["맞춤 필러", "레디어스", "실리프팅"],
     anchor: "#face-contouring",
+    icon: "/images/signature/icon12.png",
   },
   {
     num: "02",
     name: "바디 라인 관리",
     desc: "지방·탄력·부분 라인 정리가 고민",
-    tags: "트리플 바디 / 슈링크 / 슬림주사 / 바디 보톡스",
+    tags: ["트리플 바디", "슈링크", "슬림주사", "바디 보톡스"],
     anchor: "#body-contouring",
+    icon: "/images/signature/icon09.png",
   },
   {
     num: "03",
     name: "액취증·다한증 치료",
     desc: "반복되는 냄새와 땀 고민이 있다면",
-    tags: "초음파 기반 정밀 진단 / 맞춤 치료",
+    tags: ["초음파 정밀 진단", "맞춤 치료"],
     anchor: "#sweat-odor",
+    icon: "/images/signature/icon07.png",
   },
 ];
 
@@ -40,24 +43,21 @@ const faceCards = [
     name: "프리미엄 맞춤 필러",
     sub: "꺼진 볼륨을 보충해 얼굴 균형을 맞추는 시술",
     tags: ["꺼진 볼륨", "입체감", "윤곽 균형"],
-    image: "/images/contouring/filler.jpg",
-    detail: "개인의 얼굴 구조와 볼륨 분포를 분석 후 적합한 필러 제제와 주입 위치를 설계합니다.",
+    image: "/images/contouring/3_sec_01.png",
   },
   {
     id: "radiesse",
     name: "레디어스",
     sub: "볼륨과 윤곽·피부 탄력감을 함께 고려하는 케어",
     tags: ["윤곽 보완", "구조 탄력", "자연스러운 입체"],
-    image: "/images/contouring/radiesse.jpg",
-    detail: "HAC 성분이 콜라겐 생성을 촉진하며 볼륨과 탄력을 함께 개선합니다.",
+    image: "/images/contouring/3_sec_02.png",
   },
   {
     id: "thread-lifting",
     name: "실리프팅",
     sub: "처짐 방향·피부 두께·볼륨 분포를 분석해 설계",
     tags: ["턱선", "처짐 개선", "라인 정리"],
-    image: "/images/contouring/thread.jpg",
-    detail: "실의 종류와 삽입 방향을 얼굴 구조에 맞게 설계하는 맞춤형 리프팅입니다.",
+    image: "/images/contouring/3_sec_03.png",
   },
 ];
 
@@ -233,7 +233,7 @@ export default function ContouringPage() {
         {/* ── 02 CATEGORY GUIDE ───────────────────── */}
         <section id="category" className="ct-category" data-sig-section>
           <SigScrollTrigger />
-          <div className="shell ct-category__inner">
+          <div className="shell">
             <div className="ct-category__header">
               <p className="ct-eyebrow">CONTOURING CATEGORY GUIDE</p>
               <h2>어떤 컨투어링이<br />필요하신가요?</h2>
@@ -241,10 +241,15 @@ export default function ContouringPage() {
             <div className="ct-category__cards">
               {categoryCards.map((c) => (
                 <div key={c.num} className="ct-category-card">
+                  <div className="ct-category-card__icon-wrap">
+                    <Image src={assetPath(c.icon)} alt="" width={40} height={40} style={{ objectFit: "contain" }} aria-hidden="true" />
+                  </div>
                   <span className="ct-category-card__num">{c.num}</span>
                   <h3 className="ct-category-card__name">{c.name}</h3>
                   <p className="ct-category-card__desc">{c.desc}</p>
-                  <p className="ct-category-card__tags">{c.tags}</p>
+                  <div className="ct-category-card__tags">
+                    {c.tags.map((t) => <span key={t}>{t}</span>)}
+                  </div>
                   <Link href={c.anchor} className="ct-category-card__link">바로가기 →</Link>
                 </div>
               ))}
@@ -255,23 +260,32 @@ export default function ContouringPage() {
         {/* ── 03 FACE CONTOURING ──────────────────── */}
         <section id="face-contouring" className="ct-face" data-sig-section>
           <SigScrollTrigger />
-          <div className="shell">
-            <div className="ct-section-head">
+          <div className="shell ct-face__inner">
+            {/* 좌측: 타이틀 */}
+            <div className="ct-face__heading">
               <p className="ct-eyebrow">FACE CONTOURING</p>
-              <h2>얼굴형 교정</h2>
-              <p className="ct-section-head__desc">필러 · 레디어스 · 실리프팅</p>
+              <h2 className="ct-face__title">
+                과거와 같게,<br />얼굴의 균형을<br />다시 잡는<br />결과 설계
+              </h2>
+              <p className="ct-face__desc">
+                필러, 레디어스, 실리프팅을 조합해<br />
+                개인의 얼굴 구조에 맞는 윤곽 설계를 제안합니다.
+              </p>
             </div>
+            {/* 우측: 카드 3종 */}
             <div className="ct-face__cards">
               {faceCards.map((c) => (
                 <div key={c.id} className="ct-face-card">
-                  <div className="ct-face-card__image">
-                    <Image
-                      src={assetPath(c.image)}
-                      alt={c.name}
-                      fill
-                      sizes="(max-width: 900px) 80vw, 30vw"
-                      style={{ objectFit: "cover" }}
-                    />
+                  <div className="ct-face-card__image-wrap">
+                    <div className="ct-face-card__image">
+                      <Image
+                        src={assetPath(c.image)}
+                        alt={c.name}
+                        fill
+                        sizes="(max-width: 900px) 80vw, 22vw"
+                        style={{ objectFit: "cover", borderRadius: "8px" }}
+                      />
+                    </div>
                   </div>
                   <div className="ct-face-card__body">
                     <h3 className="ct-face-card__name">{c.name}</h3>
@@ -281,10 +295,6 @@ export default function ContouringPage() {
                         <span key={t} className="ct-face-card__tag">{t}</span>
                       ))}
                     </div>
-                    <details className="ct-face-card__detail">
-                      <summary className="ct-face-card__detail-toggle">자세히 보기</summary>
-                      <p className="ct-face-card__detail-body">{c.detail}</p>
-                    </details>
                   </div>
                 </div>
               ))}
