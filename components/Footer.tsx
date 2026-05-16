@@ -1,15 +1,22 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { clinicContact } from "@/data/contact";
 import { medicalNotice } from "@/data/homeSections";
+import { assetPath } from "@/lib/assets";
 
 export function Footer() {
   return (
     <footer className="site-footer">
       <div className="shell site-footer__inner">
         <div>
-          <p className="site-footer__brand">REGAIN CLINIC</p>
-          <p className="site-footer__sub">리겐의원</p>
+          <Image
+            src={assetPath("/images/regain/logo_2.png")}
+            alt="REGAIN CLINIC"
+            width={320}
+            height={92}
+            style={{ objectFit: "contain" }}
+          />
         </div>
         <div className="site-footer__info">
           <p>{clinicContact.address}</p>

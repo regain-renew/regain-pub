@@ -1,7 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+
+import { assetPath } from "@/lib/assets";
 
 import { globalCtas, navigationItems } from "@/data/navigation";
 import { MegaDropdown } from "@/components/MegaDropdown";
@@ -37,13 +40,14 @@ export function Header() {
     >
       <div className="shell site-header__inner">
         <Link href="/" className="site-logo" aria-label="REGAIN CLINIC 홈">
-          <span className="site-logo__mark" aria-hidden="true">
-            R
-          </span>
-          <span className="site-logo__text">
-            <span className="site-logo__main">REGAIN CLINIC</span>
-            <span className="site-logo__sub">리겐의원</span>
-          </span>
+          <Image
+            src={assetPath("/images/regain/logo.png")}
+            alt="REGAIN CLINIC"
+            width={200}
+            height={56}
+            style={{ objectFit: "contain" }}
+            priority
+          />
         </Link>
 
         <nav className="desktop-nav" aria-label="주요 메뉴">
