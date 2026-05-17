@@ -65,6 +65,7 @@ const bodyCards = [
   {
     num: "01",
     name: "트리플 바디",
+    image: "/images/contouring/contouring_01.png",
     sub: "지방과 탄력을 동시에 고려하는 복합 에너지 바디 컨투어링",
     tags: ["지방·탄력", "셀룰라이트", "라인 정리"],
     infos: [{ label: "시술시간", value: "30~60분" }, { label: "마취", value: "불필요" }, { label: "간격", value: "1~2주" }],
@@ -73,6 +74,7 @@ const bodyCards = [
   {
     num: "02",
     name: "바디 슈링크",
+    image: "/images/contouring/contouring_02.png",
     sub: "늘어진 바디를 깊은 층부터 끌어올리는 고강도 초음파 리프팅",
     tags: ["처짐 개선", "탄력", "타이트닝"],
     infos: [{ label: "시술시간", value: "30~60분" }, { label: "마취", value: "불필요" }, { label: "간격", value: "상태별 조절" }],
@@ -81,6 +83,7 @@ const bodyCards = [
   {
     num: "03",
     name: "바디 슬림주사",
+    image: "/images/contouring/contouring_03.png",
     sub: "운동·식이만으로 빠지지 않는 국소 부위 맞춤 바디 라인 치료",
     tags: ["국소 지방", "사이즈 감소", "라인 정리"],
     infos: [{ label: "시술시간", value: "10~20분" }, { label: "간격", value: "1~2주" }, { label: "부위", value: "부위별 선택" }],
@@ -89,6 +92,7 @@ const bodyCards = [
   {
     num: "04",
     name: "바디 보톡스",
+    image: "/images/contouring/contouring_04.png",
     sub: "불필요한 근육을 디자인하는 승모근·종아리 보톡스",
     tags: ["근육 부피", "슬림 실루엣", "라인 개선"],
     infos: [{ label: "시술시간", value: "10~15분" }, { label: "간격", value: "3~6개월" }],
@@ -110,16 +114,19 @@ const sweatDiffs = [
   {
     key: "Precision",
     title: "초음파 타겟팅",
+    icon: "/images/regain/icons/sig/process-check.png",
     items: ["땀샘 구조 사전 확인", "정확한 치료 범위 설정"],
   },
   {
     key: "Safety",
     title: "안전성 기반 케어",
+    icon: "/images/regain/icons/sig/process-treatment.png",
     items: ["국소·수면마취 선택", "응급의학 전문의 직접 관리"],
   },
   {
     key: "Recovery",
     title: "회복 중심 설계",
+    icon: "/images/regain/icons/sig/concept-recovery.png",
     items: ["과잉 제거가 아닌", "피부 건강을 고려한 시술"],
   },
 ];
@@ -242,15 +249,23 @@ export default function ContouringPage() {
               {categoryCards.map((c) => (
                 <div key={c.num} className="ct-category-card">
                   <div className="ct-category-card__icon-wrap">
-                    <Image src={assetPath(c.icon)} alt="" width={40} height={40} style={{ objectFit: "contain" }} aria-hidden="true" />
+                    <Image src={assetPath(c.icon)} alt="" width={72} height={72} style={{ objectFit: "contain" }} aria-hidden="true" />
                   </div>
-                  <span className="ct-category-card__num">{c.num}</span>
-                  <h3 className="ct-category-card__name">{c.name}</h3>
-                  <p className="ct-category-card__desc">{c.desc}</p>
-                  <div className="ct-category-card__tags">
-                    {c.tags.map((t) => <span key={t}>{t}</span>)}
+                  <div className="ct-category-card__content">
+                    <span className="ct-category-card__num">{c.num}</span>
+                    <h3 className="ct-category-card__name">{c.name}</h3>
+                    <p className="ct-category-card__desc">{c.desc}</p>
+                    <div className="ct-category-card__footer">
+                      <div className="ct-category-card__tags">
+                        {c.tags.map((t) => <span key={t}>{t}</span>)}
+                      </div>
+                      <Link href={c.anchor} className="ct-category-card__link" aria-label="바로가기">
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                          <path d="M7 4l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </Link>
+                    </div>
                   </div>
-                  <Link href={c.anchor} className="ct-category-card__link">바로가기 →</Link>
                 </div>
               ))}
             </div>
@@ -316,6 +331,9 @@ export default function ContouringPage() {
             <div className="ct-body__cards">
               {bodyCards.map((c) => (
                 <div key={c.num} className="ct-body-card">
+                  <div className="ct-body-card__img-wrap">
+                    <Image src={assetPath(c.image)} alt={c.name} fill sizes="(max-width:900px) 50vw, 25vw" style={{ objectFit: "cover", objectPosition: "center center" }} />
+                  </div>
                   <span className="ct-body-card__num">{c.num}</span>
                   <h3 className="ct-body-card__name">{c.name}</h3>
                   <p className="ct-body-card__sub">{c.sub}</p>
@@ -354,68 +372,88 @@ export default function ContouringPage() {
               <p className="ct-section-head__desc">가리는 치료가 아닌, 원인을 설계하는 치료</p>
             </div>
 
-            {/* Problem */}
-            <div className="ct-sweat__problem">
-              <h3 className="ct-sweat__block-title">보이지 않는 구조까지 확인해야 합니다</h3>
-              <ul className="ct-sweat__problem-list">
-                <li>반복되는 냄새</li>
-                <li>시술 후 부작용 우려</li>
-                <li>만족스럽지 않은 결과</li>
-              </ul>
-              <p className="ct-sweat__problem-note">원인은 구조를 고려하지 않은 치료일 수 있습니다.</p>
-            </div>
+            {/* 4-card row */}
+            <div className="ct-sweat__cards">
 
-            {/* Compare */}
-            <div className="ct-sweat__compare">
-              <div className="ct-sweat__compare-col ct-sweat__compare-col--old">
-                <h4 className="ct-sweat__compare-title">기존 방식</h4>
-                <ul>
-                  <li>눈으로만 판단</li>
-                  <li>일률적 제거</li>
-                  <li>재발 가능성</li>
+              {/* Card 1: Problem */}
+              <div className="ct-sweat__card">
+                <p className="ct-sweat__card-label">PROBLEM</p>
+                <h3 className="ct-sweat__card-title">보이지 않는 구조까지 확인해야 합니다</h3>
+                <ul className="ct-sweat__problem-list">
+                  <li>반복되는 냄새</li>
+                  <li>시술 후 부작용 우려</li>
+                  <li>만족스럽지 않은 결과</li>
                 </ul>
+                <div className="ct-sweat__problem-footer">
+                  <div className="ct-sweat__card-arrow" aria-hidden="true" />
+                  <p className="ct-sweat__problem-note">원인은 구조를 고려하지 않은 치료일 수 있습니다.</p>
+                </div>
               </div>
-              <div className="ct-sweat__compare-divider" aria-hidden="true">vs</div>
-              <div className="ct-sweat__compare-col ct-sweat__compare-col--new">
-                <h4 className="ct-sweat__compare-title">리겐 방식</h4>
-                <ul>
-                  <li>초음파 기반 진단</li>
-                  <li>1:1 맞춤 설계</li>
-                  <li>구조 기반 접근</li>
-                </ul>
-              </div>
-            </div>
 
-            {/* Self Check */}
-            <div className="ct-sweat__check">
-              <h3 className="ct-sweat__block-title">혹시 나도 액취증일까?</h3>
-              <p className="ct-sweat__check-desc">아래 항목 중 2~3개 이상 해당된다면 정밀 진단이 필요할 수 있습니다.</p>
-              <ul className="ct-sweat__check-list">
-                {selfCheckItems.map((item) => (
-                  <li key={item}>
-                    <span className="ct-sweat__check-icon" aria-hidden="true">□</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Regain Difference */}
-            <div className="ct-sweat__diff">
-              <h3 className="ct-sweat__block-title">지방층을 이해하는 정밀함이 액취증 치료의 차이를 만듭니다</h3>
-              <div className="ct-sweat__diff-cards">
-                {sweatDiffs.map((d) => (
-                  <div key={d.key} className="ct-sweat__diff-card">
-                    <span className="ct-sweat__diff-key">{d.key}</span>
-                    <h4 className="ct-sweat__diff-title">{d.title}</h4>
+              {/* Card 2: Compare */}
+              <div className="ct-sweat__card">
+                <p className="ct-sweat__card-label">COMPARE</p>
+                <h3 className="ct-sweat__card-title">기존 방식 vs 리겐 방식</h3>
+                <div className="ct-sweat__compare">
+                  <div className="ct-sweat__compare-col ct-sweat__compare-col--old">
+                    <h4 className="ct-sweat__compare-title">기존 방식</h4>
                     <ul>
-                      {d.items.map((item) => (
-                        <li key={item}>{item}</li>
-                      ))}
+                      <li>눈으로만 판단</li>
+                      <li>일률적 제거</li>
+                      <li>재발 가능성</li>
                     </ul>
                   </div>
-                ))}
+                  <div className="ct-sweat__compare-col ct-sweat__compare-col--new">
+                    <h4 className="ct-sweat__compare-title">리겐 방식</h4>
+                    <ul>
+                      <li>초음파 기반 진단</li>
+                      <li>1:1 맞춤 설계</li>
+                      <li>구조 기반 접근</li>
+                    </ul>
+                  </div>
+                  <div className="ct-sweat__compare-vs" aria-hidden="true">VS</div>
+                </div>
               </div>
+
+              {/* Card 3: Self Check */}
+              <div className="ct-sweat__card">
+                <p className="ct-sweat__card-label">SELF CHECK</p>
+                <h3 className="ct-sweat__card-title">혹시 나도 액취증일까?</h3>
+                <p className="ct-sweat__check-desc">아래 항목 중 2~3개 이상 해당된다면 정밀 진단이 필요할 수 있습니다.</p>
+                <ul className="ct-sweat__check-list">
+                  {selfCheckItems.map((item) => (
+                    <li key={item}>
+                      <span className="ct-sweat__check-icon" aria-hidden="true" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Card 4: Regain Difference */}
+              <div className="ct-sweat__card">
+                <p className="ct-sweat__card-label">REGAIN DIFFERENCE</p>
+                <h3 className="ct-sweat__card-title">지방층을 이해하는 정밀함이 액취증 치료의 차이를 만듭니다</h3>
+                <div className="ct-sweat__diff-list">
+                  {sweatDiffs.map((d) => (
+                    <div key={d.key} className="ct-sweat__diff-item">
+                      <div className="ct-sweat__diff-icon" aria-hidden="true">
+                        <Image src={assetPath(d.icon)} alt="" width={20} height={20} style={{ objectFit: "contain" }} />
+                      </div>
+                      <div>
+                        <span className="ct-sweat__diff-key">{d.key}</span>
+                        <h4 className="ct-sweat__diff-title">{d.title}</h4>
+                        <ul>
+                          {d.items.map((item) => (
+                            <li key={item}>{item}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
             </div>
 
           </div>
@@ -492,10 +530,10 @@ export default function ContouringPage() {
             aria-hidden="true"
           />
           <div className="shell ct-notice__inner">
-            <p className="ct-notice__label">NOTICE</p>
-            <h3 className="ct-notice__title">컨투어링 프로그램 안내</h3>
             <div className="ct-notice__columns">
               <div className="ct-notice__col">
+                <p className="ct-notice__label">NOTICE</p>
+                <h3 className="ct-notice__title">컨투어링 프로그램 안내</h3>
                 <p className="ct-notice__col-heading">공통 주의사항</p>
                 <ul className="ct-notice__list">
                   {commonNotices.map((n) => <li key={n}>{n}</li>)}
