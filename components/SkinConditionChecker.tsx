@@ -2,23 +2,75 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import type { ReactNode } from "react";
 import { assetPath } from "@/lib/assets";
 import { SigScrollTrigger } from "@/components/SigScrollTrigger";
 
 type Concern = {
   id: string;
   label: string;
-  icon: string;
+  icon: ReactNode;
   desc: string;
 };
 
 const concerns: Concern[] = [
-  { id: "dry",      label: "건조감",      icon: "💧", desc: "푸석하고 당김이\n느껴지는 피부" },
-  { id: "elastic",  label: "탄력 저하",   icon: "↓",  desc: "피부가 처지고\n탄력이 떨어지는 느낌" },
-  { id: "tone",     label: "칙칙한 톤",   icon: "🌫", desc: "피부 톤이 칙칙하고\n생기가 부족한 느낌" },
-  { id: "pore",     label: "모공 고민",   icon: "○",  desc: "모공이 넓어지고\n피부 질감이 고르지 않음" },
-  { id: "texture",  label: "거친 피부결", icon: "〰", desc: "피부결이 고르지 않고\n울퉁불퉁하게 느껴지는 피부" },
-  { id: "sensitive",label: "민감함",      icon: "🌿", desc: "쉽게 자극받고\n붉어지는 피부" },
+  {
+    id: "dry", label: "건조감", desc: "푸석하고 당김이\n느껴지는 피부",
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 3C12 3 6 9.5 6 14a6 6 0 0012 0c0-4.5-6-11-6-11z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round"/>
+        <path d="M9 16.5c1 1 3 1.5 4.5.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
+      </svg>
+    ),
+  },
+  {
+    id: "elastic", label: "탄력 저하", desc: "피부가 처지고\n탄력이 떨어지는 느낌",
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M5 8c2 3 4 4 7 4s5-1 7-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
+        <path d="M5 14c2 3 4 4 7 4s5-1 7-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeDasharray="2 2"/>
+        <path d="M12 18v2M9 19.5l3-1.5 3 1.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    ),
+  },
+  {
+    id: "tone", label: "칙칙한 톤", desc: "피부 톤이 칙칙하고\n생기가 부족한 느낌",
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.6"/>
+        <path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.64 5.64l1.41 1.41M16.95 16.95l1.41 1.41M5.64 18.36l1.41-1.41M16.95 7.05l1.41-1.41" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
+      </svg>
+    ),
+  },
+  {
+    id: "pore", label: "모공 고민", desc: "모공이 넓어지고\n피부 질감이 고르지 않음",
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="8" cy="9" r="2" stroke="currentColor" strokeWidth="1.5"/>
+        <circle cx="16" cy="9" r="2.5" stroke="currentColor" strokeWidth="1.5"/>
+        <circle cx="11" cy="16" r="1.5" stroke="currentColor" strokeWidth="1.5"/>
+        <path d="M8 11v2M16 11.5v2.5M11 17.5v1" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
+      </svg>
+    ),
+  },
+  {
+    id: "texture", label: "거친 피부결", desc: "피부결이 고르지 않고\n울퉁불퉁하게 느껴지는 피부",
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M3 12c1.5-3 3-2 4.5 0s3 3 4.5 0 3-3 4.5 0S18.5 15 21 12" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M3 17c1.5-2 3-1.5 4.5 0s3 2 4.5 0 3-2 4.5 0S18.5 19 21 17" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" opacity="0.5"/>
+      </svg>
+    ),
+  },
+  {
+    id: "sensitive", label: "민감함", desc: "쉽게 자극받고\n붉어지는 피부",
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 3.5C9 3.5 6 6 6 9.5c0 4 4 8 6 10 2-2 6-6 6-10 0-3.5-3-6-6-6z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round"/>
+        <path d="M12 8v4M12 14.5v.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
+      </svg>
+    ),
+  },
 ];
 
 type Solution = { title: string; desc: string; image: string };

@@ -2655,6 +2655,7 @@ textarea {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   min-height: 52px;
   padding: 0 32px;
   border-radius: 4px;
@@ -3249,6 +3250,7 @@ textarea {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   min-height: 52px;
   padding: 0 32px;
   border-radius: 4px;
@@ -4511,6 +4513,7 @@ textarea {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   min-height: 52px;
   padding: 0 32px;
   border-radius: 4px;
@@ -5565,6 +5568,7 @@ textarea {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   min-height: 52px;
   padding: 0 32px;
   border-radius: 4px;
