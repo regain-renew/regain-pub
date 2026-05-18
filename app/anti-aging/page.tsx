@@ -432,9 +432,18 @@ export default function AntiAgingPage() {
               리겐의원은 의료진 상담을 통해 개인에게 적합한 리프팅 방향을 안내합니다.
             </p>
             <div className="aa-cta__actions">
-              <Link href="#appointment" className="aa-cta__btn aa-cta__btn--primary">상담 예약하기</Link>
-              <Link href="#kakao-consult" className="aa-cta__btn aa-cta__btn--outline">💬 카카오 상담</Link>
-              <Link href="#naver-booking" className="aa-cta__btn aa-cta__btn--outline">📅 네이버 예약</Link>
+              <Link href="tel:02-1234-5678" className="aa-cta__btn aa-cta__btn--primary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z" fill="currentColor"/></svg>
+                전화 상담 예약
+              </Link>
+              <Link href="#kakao-consult" className="aa-cta__btn aa-cta__btn--outline">
+                <Image src="/images/regain/kakao.png" alt="" width={16} height={16} style={{ objectFit: "contain" }} aria-hidden="true" />
+                카카오 상담
+              </Link>
+              <Link href="#naver-booking" className="aa-cta__btn aa-cta__btn--outline">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2"/><path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
+                온라인 예약
+              </Link>
             </div>
           </div>
         </section>
